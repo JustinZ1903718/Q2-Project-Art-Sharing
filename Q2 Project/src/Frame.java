@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
@@ -18,13 +19,20 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	//CREATE THE OBJECT (STEP 1)
 	Background 	bg 	= new Background(0, 0);
 	Player p = new Player(100, 100);
-	
-
+	Enemy e = new Enemy(200, 200, 0, 0);
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		bg.paint(g);
 		p.paint(g);
-		
+		e.paint(g);
+		Font font = new Font("Joeaaaaaaaaaaaaa", Font.PLAIN, 50);
+		g.setFont(font);
+		if(p.getX()<=e.getx()&&p.getX()+32<=e.getx()&&p.getY()>=e.gety()&&p.getY()+32>=e.gety()) {
+			g.setColor(Color.white);
+			g.fillRect(0, 0, 1000, 1000);
+			g.setColor(Color.white);
+			g.drawString("You lost lol press r to restart", 10, 250);
+		}
 	}
 	
 	public static void main(String[] arg) {
@@ -34,7 +42,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	
 	public Frame() {
 		JFrame f = new JFrame("World's Game");
-		f.setSize(new Dimension(1000, 1000));
+		f.setSize(new Dimension(1000, 500));
 		f.setBackground(Color.blue);
 		f.add(this);
 		f.setResizable(false);
@@ -84,16 +92,16 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 			System.out.println(arg0.getKeyCode());
-			if(arg0.getKeyCode() == 87 && p.getY() >= 10) {
+			if(arg0.getKeyCode() == 87) {
 				p.goUp();
 			}
-			if(arg0.getKeyCode() == 65 && p.getX()>=10) {
+			if(arg0.getKeyCode() == 65) {
 				p.goLeft();
 			}
-			if(arg0.getKeyCode() == 83 && p.getY() <= 950) {
+			if(arg0.getKeyCode() == 83) {
 				p.goDown();
 			}
-			if(arg0.getKeyCode() == 68 && p.getX() <= 950) {
+			if(arg0.getKeyCode() == 68) {
 				p.goRight();
 			}
 	}

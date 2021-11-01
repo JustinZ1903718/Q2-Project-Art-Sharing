@@ -16,6 +16,10 @@ public class Player{
 	private int y;
 	private int vx;
 	private int vy;
+	private int maxX = 950;
+	private int maxY = 430;
+	private int minX = 10;
+	private int minY = 10;
 
 	public Player(int x, int y) {
 		this.x = 100;
@@ -25,7 +29,7 @@ public class Player{
 		init(x, y); 				//initialize the location of the image
 									//use your variables
 	}
-
+	
 	public int getX() {
 		return this.x;
 	}
@@ -33,13 +37,15 @@ public class Player{
 		return this.y;
 	}
 	public void goLeft() {
-		vx= -6;
+		vx = -6;
 	}
 	public void goRight() {
 		vx = 6;
 	}
 	public void goDown() {
-		vy= 6;
+		vy = 6;
+
+	
 	}
 	public void goUp() {
 		vy = -6;
@@ -48,7 +54,7 @@ public class Player{
 		vx = 0;
 	}
 	public void stopY() {
-		vy=0;
+		vy = 0;
 	}
 	public void paint(Graphics g) {
 		//these are the 2 lines of code needed draw an image on the screen
@@ -70,6 +76,19 @@ public class Player{
 	private void update() {
 		x += vx;
 		y += vy;
+		if(this.x <= minX) {
+			x = minX;
+		}
+		if(this.x >= maxX) {
+			x = maxX;
+		}
+		if(this.y >= maxY) {
+			y = maxY;
+		}
+		if(this.y <= minY) {
+			y = minY;
+		}
+		
 		tx.setToTranslation(x, y);
 		tx.scale(0.5, 0.5);
 		
