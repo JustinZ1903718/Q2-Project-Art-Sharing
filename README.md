@@ -1,2 +1,2 @@
-# World's Hardest Game-Ed: the documentation
+# World's Hardest Game-ED: the documentation
 ur mother hehehehaw
