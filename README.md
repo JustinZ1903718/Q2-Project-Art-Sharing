@@ -1,2 +1,2 @@
-# Q2-Project-Art-Sharing
+# World's Hardest Game-Ed: the documentation
 ur mother hehehehaw
