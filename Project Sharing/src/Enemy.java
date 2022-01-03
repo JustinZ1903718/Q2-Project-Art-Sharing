@@ -14,18 +14,29 @@ public class Enemy {
 	private int vx;
 	private int vy;
 	private int r;
-	public int minx=100;
-	public int miny=0;
-	public int maxx=900;
-	public int maxy=500;
+	public int minX=100;
+	public int minY=0;
+	public int maxX=900;
+	public int maxY=500;
+	private int curVx;
+	private int curVy;
+	private int diameter = 35;
 	private Image img; 	
 	private AffineTransform tx;
+	private boolean rectangle;
 	
-	public Enemy(int x, int y, int vx, int vy) {
+	public Enemy(int x, int y, int vx, int vy, int minX, int minY, int maxX, int maxY, boolean rectangle) {
 		this.x = x;
 		this.y = y;
 		this.vx = vx;
 		this.vy = vy;
+		this.minX = minX;
+		this.maxY = maxX;
+		this.minY = minY;
+		this.maxX = maxX;
+		this.maxY = maxY;
+		curVx = vx;
+		this.rectangle = rectangle;
 		img = getImage("/imgs/Enemy.png");
 		tx = AffineTransform.getTranslateInstance(x, y );
 		init(x, y);
@@ -41,29 +52,62 @@ public class Enemy {
 
 	}
 	private void update() { 
-		y+=vy;
-		x+=vx;
-		if(y+64>=maxy) {
-			y=maxy-64;
-			vy=-vy;
+		if(!rectangle) {//does regular linear movement
+			y+=vy;
+			x+=vx;
+			if(y+2*diameter>maxY) {
+				y=maxY-2*diameter;
+				vy=-vy;
+			}
+			if(y<minY) {
+				y=minY;
+				vy=-vy;
+			}
+			//change 64 based on your own enemy size
+			if(x+diameter>=maxX) {
+				x=maxX-diameter;
+				vx=-vx;
+			}
+			if(x<minX) {
+				x=minX;
+				vx=-vx;
+			}
 		}
-		if(y<=miny) {
-			y=miny;
-			vy=-vy;
-		}
-		//change 64 based on your own enemy size
-		if(x+64>=maxx) {
-			x=maxx-64;
-			vx=-vx;
-		}
-		if(x<=minx) {
-			x=minx;
-			vx=-vx;
+		if(rectangle) {//only moves one direction at a time and changes direction when it approaches max/min x/y
+			x+=curVx;
+			y+=curVy;
+			if(curVy==0) {
+				if(x+diameter>maxX) {
+					x=maxX-diameter;
+					curVx=0;
+					curVy=vy;	
+				}
+				if(x<minX) {
+					x=minX;
+					curVx=0;
+					curVy=-vy;	
+				}
+			}
+			if(curVx==0) {
+				if(y+2*diameter>maxY) {
+					y=maxY-2*diameter;
+					curVx=-vx;
+					curVy=0;	
+				}
+				if(y<minY) {
+					y=minY;
+					curVx=vx;
+					curVy=0;	
+				}
+			}
 		}
 		tx.setToTranslation(x, y);
 		tx.scale(0.07	, 0.07);
 		
 	}
+
+
+		
 	public void changePicture(String newFileName) {
 		img = getImage(newFileName);
 		init(x, y);

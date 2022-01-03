@@ -91,7 +91,7 @@ public class Player{
 			y += vy;
 		}
 		
-		if(this.x <= minX) {
+		if(this.x <= minX) {//sets borders for where the player can go
 			x = minX;
 		}
 		if(this.x >= maxX) {
