@@ -96,3 +96,19 @@ Stops the player if they release the key
 Coin class. Coin gets painted based on if exists is true. Setters used to change exists from the main method. Getters to return x and y values for main method.
 
 
+![image](https://user-images.githubusercontent.com/63608754/148121401-0f974848-54bf-4dbc-afaa-3537b6013018.png)
+
+Background class. The background changes whether or not the player is on the title screen(when curLevel equals 0 in the frame class)
+
+
+![image](https://user-images.githubusercontent.com/63608754/148121566-99faeb93-c589-483f-982b-7aac87770f93.png)
+
+![image](https://user-images.githubusercontent.com/63608754/148121590-1dae89cd-8853-4ff2-9f4a-a2be6d203684.png)
+
+Enemy class. Sets borders for the enemy based on what is put for min/max x/y. The rectangle makes the enemy only go in one direction(x or y) at a time until it reaches the border where it switches.
+
+![image](https://user-images.githubusercontent.com/63608754/148121782-322dfbe2-4818-4ef7-956b-c343097f9318.png)
+
+![image](https://user-images.githubusercontent.com/63608754/148121845-ee4e9e08-ac87-4ad5-82e4-6c8f640f0f1b.png)
+
+Player class. Contains movement, getters and setters for the x and y position and if it's dead, and borders for where the player can move.
