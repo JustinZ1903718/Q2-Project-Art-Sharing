@@ -112,3 +112,25 @@ Enemy class. Sets borders for the enemy based on what is put for min/max x/y. Th
 ![image](https://user-images.githubusercontent.com/63608754/148121845-ee4e9e08-ac87-4ad5-82e4-6c8f640f0f1b.png)
 
 Player class. Contains movement, getters and setters for the x and y position and if it's dead, and borders for where the player can move.
+
+![image](https://user-images.githubusercontent.com/90798634/148291471-b32f5c47-6fc3-4869-b40e-d9650e982a8f.png)
+
+Our title Screen
+
+![image](https://user-images.githubusercontent.com/90798634/148291552-16555526-4cdb-4fd2-9b24-586cba3cf7ce.png)
+
+Level select screen
+
+![image](https://user-images.githubusercontent.com/90798634/148291727-6337d1a5-dd91-42ca-9ab0-ea635acd6172.png)
+
+Level 1
+
+![image](https://user-images.githubusercontent.com/90798634/148291836-8e5a9435-9ac5-4c5f-bbf7-81b7c9a43b55.png)
+
+Level 2
+
+![image](https://user-images.githubusercontent.com/90798634/148291928-b0d6f16c-7ca0-4b52-8961-0ee06b6d08fa.png)
+
+Level 3
+
+
