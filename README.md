@@ -1,4 +1,7 @@
 # World's Hardest Game-ED: the documentation
+
+ (Game playthrough is in the repo)
+ 
 ![image](https://user-images.githubusercontent.com/63608754/147980986-76670da8-cd46-4cf2-b899-06bb01a6173e.png)
 
 basic variables
